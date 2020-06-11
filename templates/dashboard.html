@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Admin Panel</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}"/>
+
+  <!-- Custom fonts for this template -->
+  <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static', filename='css/clean-blog.min.css')}}" rel="stylesheet">
+</head>
+<body>
+
+  <header class="masthead" style="background-image: url('{{ url_for('static',filename= 'img/home-bg.jpg')}}') ">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Yönetici Panel</h1>
+            <span class="subheading">post yükle yada değiş...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+        <h1>Basic Actions</h1>
+       <a href="/edit/0"> <button class="btn btn-danger">Add a new post</button></a>
+        <a href="/logout"> <button class="btn btn-danger">Çıkış</button></a>
+
+    <h1>Dosya Ekle</h1>
+<div class="row">
+
+            <form action="/uploader" method="post" enctype="multipart/form-data">
+                <input type="file" name="file1">
+                <button type="submit"> Submit</button>
+
+            </form>
+
+</div>
+            <hr>
+
+
+<h1>Gönderi Düzenle</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">num</th>
+      <th scope="col">Başlık</th>
+      <th scope="col">Alt Başlık</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for post in posts %}
+
+    <tr>
+      <th scope="row">{{ post.num }}</th>
+      <td>{{post.baslik}}</td>
+      <td>{{post.alt_bas}}</td>
+      <td><a href="/edit/{{ post.num }}"><button class="btn btn-danger">Edit</button> </a></td>
+      <td><a href="/delete/{{ post.num }}"><button class="btn btn-danger">Delete</button> </a></td>
+
+
+    </tr>
+
+  {% endfor %}
+  </tbody>
+</table>
+
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+          <p class="copyright text-muted">Tüm hakları sakldır &copy; My Website 2020</p>
+  </footer>
+
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+</body>
+</html>

@@ -7,6 +7,8 @@ import os
 import math
 
 
+file_path = os.path.abspath(os.getcwd())+"\\blog.db"
+
 app=Flask(__name__)
 
 app.secret_key="super-secret-key"
@@ -23,7 +25,7 @@ app.config['MAIL_USE_SSL'] = True
 
 mail = Mail(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Udemy3/flask_udemy/blog.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////'+file_path
 db = SQLAlchemy(app)
 
 class Contacts(db.Model):

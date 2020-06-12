@@ -25,7 +25,7 @@ app.config['MAIL_USE_SSL'] = True
 
 mail = Mail(app)
 
-app.config['DATABASE_URI'] = 'sqlite:////Udemy3/flask_udemy/blog.db'
+app.config['DATABASE_URI'] = ':memory:'
 
 
 

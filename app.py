@@ -25,7 +25,7 @@ app.config['MAIL_USE_SSL'] = True
 
 mail = Mail(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Udemy3/flask_udemy/blog.db'
+app.config['DATABASE_URI'] = 'sqlite:////Udemy3/flask_udemy/blog.db'
 
 
 
@@ -55,9 +55,6 @@ def post(url_yap):
         posto=Posts.query.filter_by(url_yap=url_yap).first()
         return render_template("post.html",posto=posto)
     return render_template("post.html")
-
-
-
 
 
 
@@ -130,15 +127,6 @@ def index():
     return render_template("index.html",posts=posts,geri=geri,next=next)
 
 
-
-
-
-
-
-
-
-
-
 @app.route("/edit/<string:num>",methods=["GET","POST"])
 def edit(num):
     kullanıcı_adı="fatih1234"
@@ -192,9 +180,6 @@ def delete(num):
         db.session.delete(post)
         db.session.commit()
     return redirect("/dashboard")
-
-
-
 
 
 

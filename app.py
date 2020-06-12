@@ -25,7 +25,10 @@ app.config['MAIL_USE_SSL'] = True
 
 mail = Mail(app)
 
-app.config['DATABASE_URL'] = 'sqlite:////Udemy3/flask_udemy/blog.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Udemy3/flask_udemy/blog.db'
+
+
+
 db = SQLAlchemy(app)
 
 class Contacts(db.Model):

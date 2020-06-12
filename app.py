@@ -25,7 +25,7 @@ app.config['MAIL_USE_SSL'] = True
 
 mail = Mail(app)
 
-app.config['DATABASE_URI'] = ':memory:'
+app.config['DATABASE_URI'] = 'sqlite:////Udemy3/flask_udemy/blog.db'
 
 
 
@@ -182,6 +182,8 @@ def delete(num):
     return redirect("/dashboard")
 
 
+# Create DB if not exist
+db.create_all()
 
 if __name__ == '__main__':
     app.run(debug=True)

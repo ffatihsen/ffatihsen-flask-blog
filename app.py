@@ -71,7 +71,7 @@ def contact():
         db.session.commit()
         mail.send_message("Blogtan yeni mesaj var "+name,
                           sender=email,
-                          recipients=["sennfatih1999@gmail.com"],
+                          recipients=["***@gmail.com"],
                           body=message+"\n"+phone)
         return redirect(url_for("index"))
 
@@ -85,8 +85,8 @@ def about():
 
 @app.route("/dashboard",methods=["GET","POST"])
 def dashboard():
-    kullanıcı_adı="fatih1234"
-    kullanıcı_pass="1478523"
+    kullanıcı_adı="admin"
+    kullanıcı_pass="pass"
 
     if("user" in session and session["user"]==kullanıcı_adı):
         posts=Posts.query.all()
@@ -129,8 +129,8 @@ def index():
 
 @app.route("/edit/<string:num>",methods=["GET","POST"])
 def edit(num):
-    kullanıcı_adı="fatih1234"
-    kullanıcı_pass="1478523"
+    kullanıcı_adı="admin"
+    kullanıcı_pass="pass"
     if ("user" in session and session["user"] == kullanıcı_adı):
         if(request.method=="POST"):
             box_title=request.form.get("baslik")
@@ -157,8 +157,8 @@ def edit(num):
 
 @app.route("/uploader",methods=["GET","POST"])
 def uploader():
-    kullanıcı_adı="fatih1234"
-    kullanıcı_pass="1478523"
+    kullanıcı_adı="admin"
+    kullanıcı_pass="pass"
     if ("user" in session and session["user"] == kullanıcı_adı):
         if(request.method=="POST"):
             f=request.files["file1"]
@@ -173,8 +173,8 @@ def logout():
 
 @app.route("/delete/<string:num>")
 def delete(num):
-    kullanıcı_adı="fatih1234"
-    kullanıcı_pass="1478523"
+    kullanıcı_adı="admin"
+    kullanıcı_pass="pass"
     if ("user" in session and session["user"] == kullanıcı_adı):
         post=Posts.query.filter_by(num=num).first()
         db.session.delete(post)

@@ -18,8 +18,8 @@ app.config["UPLOAD_FOLDER"]="C:\\Users\\90542\\Desktop\\yukle"
 
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'sennfatih1999@gmail.com'
-app.config['MAIL_PASSWORD'] = 'UzakDurF70S83?!.'
+app.config['MAIL_USERNAME'] = '*****@gmail.com'
+app.config['MAIL_PASSWORD'] = '***'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
